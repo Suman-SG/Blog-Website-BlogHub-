@@ -1,0 +1,521 @@
+﻿@using System.Text.RegularExpressions
+@{
+    ViewData["Title"] = "Categories";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    /* Reset and Base Styles */
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+        background-color: #f8f9fa;
+        color: #333;
+        line-height: 1.6;
+        overflow-x: hidden;
+    }
+
+    /* Custom Navbar */
+    .custom-navbar {
+        background: #2c3e50;
+        padding: 15px 0;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+    }
+
+    .navbar-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .navbar-left {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .hamburger-menu {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+        padding: 5px;
+    }
+
+    .navbar-brand {
+        color: white;
+        font-size: 1.8rem;
+        font-weight: 700;
+        text-decoration: none;
+    }
+
+    .navbar-right {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .user-avatar {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        color: white;
+    }
+
+    /* Sidebar Styles */
+    .sidebar {
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100vh;
+        width: 280px;
+        background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+        padding-top: 80px;
+        z-index: 999;
+        transition: transform 0.3s ease;
+        overflow-y: auto;
+        border-radius: 0 20px 20px 0;
+    }
+
+    .sidebar.closed {
+        transform: translateX(-100%);
+    }
+
+    .sidebar-menu {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .sidebar-menu li {
+        margin: 0;
+    }
+
+    .sidebar-menu a {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        padding: 15px 25px;
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border-left: 3px solid transparent;
+    }
+
+    .sidebar-menu a:hover,
+    .sidebar-menu a.active {
+        background: rgba(255, 255, 255, 0.1);
+        border-left-color: white;
+    }
+
+    .sidebar-menu i {
+        font-size: 1.2rem;
+        width: 20px;
+        text-align: center;
+    }
+
+    /* Main Content */
+    .main-content {
+        margin-left: 280px;
+        padding-top: 20px;
+        min-height: 100vh;
+        background: #f8f9fa;
+        transition: margin-left 0.3s ease;
+    }
+
+    .main-content.sidebar-closed {
+        margin-left: 0;
+    }
+
+    /* Button Styles */
+    .button {
+        display: inline-block;
+        padding: 10px 20px;
+        border-radius: 50px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        text-align: center;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .solid-button {
+        background-color: #643843;
+        color: white;
+        border: none;
+    }
+
+        .solid-button:hover {
+            background-color: #775860;
+        }
+
+    .outline-button {
+        background-color: transparent;
+        color: #643843;
+        border: 1px solid #643843;
+    }
+
+        .outline-button:hover {
+            background-color: rgba(100, 56, 67, 0.1);
+        }
+
+    /* Categories Section */
+    .categories-section {
+        padding: 20px 20px;
+        text-align: center;
+        font-family: 'Poppins', sans-serif;
+    }
+
+        .categories-section h1 {
+            font-size: 2.5rem;
+            color: #643843;
+            margin-bottom: 15px;
+        }
+
+        .categories-section p {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+    .categories-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        margin: 20px auto;
+        max-width: 1200px;
+    }
+
+    .category-card {
+        background: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+    .category-image-container {
+        width: 100%;
+        height: 180px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .category-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        transition: transform 0.5s ease;
+    }
+
+    .category-card:hover .category-image {
+        transform: scale(1.1);
+    }
+
+    .category-content {
+        padding: 20px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .category-card h3 {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+        color: #643843;
+    }
+
+    .category-card .button {
+        margin-top: auto;
+        align-self: center;
+        width: 120px;
+    }
+
+    .back-button-container {
+        margin: 50px auto 20px;
+        text-align: center;
+        max-width: 1200px;
+    }
+
+    /* Responsive Design */
+    @@media (max-width: 768px) {
+        .sidebar {
+            transform: translateX(-100%);
+        }
+
+        .sidebar.open {
+            transform: translateX(0);
+        }
+
+        .main-content {
+            margin-left: 0;
+        }
+
+        .categories-grid {
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .categories-section {
+            padding: 20px 15px;
+        }
+    }
+
+    @@media (max-width: 480px) {
+        .categories-grid {
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+
+        .category-card {
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        .categories-section h1 {
+            font-size: 2rem;
+        }
+    }
+</style>
+
+<!-- Custom Navbar -->
+<nav class="custom-navbar">
+    <div class="navbar-container">
+        <div class="navbar-left">
+            <button class="hamburger-menu" id="sidebarToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <a href="/" class="navbar-brand">BlogHub</a>
+        </div>
+        
+        <div class="navbar-right">
+            <div class="user-avatar">A</div>
+        </div>
+    </div>
+</nav>
+
+<!-- Sidebar -->
+<div class="sidebar" id="sidebar">
+    <ul class="sidebar-menu">
+        <li><a href="/Feed/Index">
+            <i class="fas fa-home"></i>
+            Home Feed
+        </a></li>
+        <li><a href="/User/EditProfile">
+            <i class="fas fa-user" style="color: #2c3e50;"></i>
+            Edit Profile
+        </a></li>
+        <li><a href="/User/Bookmarks">
+            <i class="fas fa-bookmark" style="color: #ff6b6b;"></i>
+            Bookmarks
+        </a></li>
+        <li><a href="/User/MyPosts">
+            <i class="fas fa-file-alt" style="color: #f8f9fa;"></i>
+            My Posts
+        </a></li>
+        <li><a href="/Category/Index" class="active">
+            <i class="fas fa-tags" style="color: #ffd93d;"></i>
+            Categories
+        </a></li>
+        <li><a href="/Auth/Logout">
+            <i class="fas fa-sign-out-alt" style="color: #3498db;"></i>
+            Logout
+        </a></li>
+    </ul>
+</div>
+
+<!-- Main Content -->
+<div class="main-content" id="mainContent">
+    <section class="categories-section">
+        <h1>Blog Categories</h1>
+        <p>Explore our diverse collection of articles by category</p>
+
+        <div class="categories-grid">
+            <!-- Category Card 1 -->
+            <div class="category-card">
+                <div class="category-image-container">
+                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Cooking" class="category-image">
+                </div>
+                <div class="category-content">
+                    <h3>Cooking</h3>
+                    <a href="/Category/Cooking" class="button outline-button">Explore</a>
+                </div>
+            </div>
+
+            <!-- Category Card 2 -->
+            <div class="category-card">
+                <div class="category-image-container">
+                    <img src="https://images.unsplash.com/photo-1505576399279-565b52d4ac71?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Daily Life" class="category-image">
+                </div>
+                <div class="category-content">
+                    <h3>Daily Life</h3>
+                    <a href="/Category/Dailylife" class="button outline-button">Explore</a>
+                </div>
+            </div>
+
+            <!-- Category Card 3 -->
+            <div class="category-card">
+                <div class="category-image-container">
+                    <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Education" class="category-image">
+                </div>
+                <div class="category-content">
+                    <h3>Education</h3>
+                    <a href="/Category/Education" class="button outline-button">Explore</a>
+                </div>
+            </div>
+
+            <!-- Category Card 4 -->
+            <div class="category-card">
+                <div class="category-image-container">
+                    <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Fashion" class="category-image">
+                </div>
+                <div class="category-content">
+                    <h3>Fashion</h3>
+                    <a href="/Category/Fashion" class="button outline-button">Explore</a>
+                </div>
+            </div>
+
+            <!-- Category Card 5 -->
+            <div class="category-card">
+                <div class="category-image-container">
+                    <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Movies" class="category-image">
+                </div>
+                <div class="category-content">
+                    <h3>Movies</h3>
+                    <a href="/Category/Movies" class="button outline-button">Explore</a>
+                </div>
+            </div>
+
+            <!-- Category Card 6 -->
+            <div class="category-card">
+                <div class="category-image-container">
+                    <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="News" class="category-image">
+                </div>
+                <div class="category-content">
+                    <h3>News</h3>
+                    <a href="/Category/News" class="button outline-button">Explore</a>
+                </div>
+            </div>
+
+            <!-- Category Card 7 -->
+            <div class="category-card">
+                <div class="category-image-container">
+                    <img src="https://images.unsplash.com/photo-1505506874110-6a7a69069a08?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Opinion" class="category-image">
+                </div>
+                <div class="category-content">
+                    <h3>Opinion</h3>
+                    <a href="/Category/Opinion" class="button outline-button">Explore</a>
+                </div>
+            </div>
+
+            <!-- Category Card 8 -->
+            <div class="category-card">
+                <div class="category-image-container">
+                    <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Sports" class="category-image">
+                </div>
+                <div class="category-content">
+                    <h3>Sports</h3>
+                    <a href="/Category/Sports" class="button outline-button">Explore</a>
+                </div>
+            </div>
+
+            <!-- Category Card 9 -->
+            <div class="category-card">
+                <div class="category-image-container">
+                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Technology" class="category-image">
+                </div>
+                <div class="category-content">
+                    <h3>Technology</h3>
+                    <a href="/Category/Technology" class="button outline-button">Explore</a>
+                </div>
+            </div>
+
+            <!-- Category Card 10 -->
+            <div class="category-card">
+                <div class="category-image-container">
+                    <img src="https://images.unsplash.com/photo-1470115636492-6d2b56f9146d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Travel" class="category-image">
+                </div>
+                <div class="category-content">
+                    <h3>Travel</h3>
+                    <a href="/Category/Travel" class="button outline-button">Explore</a>
+                </div>
+            </div>
+
+            <!-- Category Card 11 -->
+            <div class="category-card">
+                <div class="category-image-container">
+                    <img src="https://images.unsplash.com/photo-1474511320723-9a56873867b5?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Wildlife" class="category-image">
+                </div>
+                <div class="category-content">
+                    <h3>Wildlife</h3>
+                    <a href="/Category/Wildlife" class="button outline-button">Explore</a>
+                </div>
+            </div>
+
+            <!-- Category Card 12 -->
+            <div class="category-card">
+                <div class="category-image-container">
+                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Other" class="category-image">
+                </div>
+                <div class="category-content">
+                    <h3>Other</h3>
+                    <a href="/Category/Other" class="button outline-button">Explore</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="back-button-container">
+            <a href="/Feed/Index" class="button outline-button">Back to Blog Feed</a>
+        </div>
+    </section>
+</div>
+
+<script>
+    // Sidebar toggle functionality
+    const sidebarToggle = document.getElementById('sidebarToggle');
+    const sidebar = document.getElementById('sidebar');
+    const mainContent = document.getElementById('mainContent');
+
+    sidebarToggle.addEventListener('click', () => {
+        sidebar.classList.toggle('closed');
+        mainContent.classList.toggle('sidebar-closed');
+    });
+
+    // Close sidebar when clicking outside on mobile
+    document.addEventListener('click', (e) => {
+        if (window.innerWidth <= 768) {
+            if (!sidebar.contains(e.target) && !sidebarToggle.contains(e.target)) {
+                sidebar.classList.add('closed');
+                mainContent.classList.add('sidebar-closed');
+            }
+        }
+    });
+</script>

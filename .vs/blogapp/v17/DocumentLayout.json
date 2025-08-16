@@ -1,0 +1,138 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\shonu\\Downloads\\blogapp_final\\blogapp\\blogapp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{39871766-A6D3-6521-02DF-544926FA5F47}|blogapp.csproj|c:\\users\\shonu\\downloads\\blogapp_final\\blogapp\\blogapp\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{39871766-A6D3-6521-02DF-544926FA5F47}|blogapp.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{39871766-A6D3-6521-02DF-544926FA5F47}|blogapp.csproj|c:\\users\\shonu\\downloads\\blogapp_final\\blogapp\\blogapp\\migrations\\20250728053606_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{39871766-A6D3-6521-02DF-544926FA5F47}|blogapp.csproj|solutionrelative:migrations\\20250728053606_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{39871766-A6D3-6521-02DF-544926FA5F47}|blogapp.csproj|c:\\users\\shonu\\downloads\\blogapp_final\\blogapp\\blogapp\\views\\auth\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{39871766-A6D3-6521-02DF-544926FA5F47}|blogapp.csproj|solutionrelative:views\\auth\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{39871766-A6D3-6521-02DF-544926FA5F47}|blogapp.csproj|c:\\users\\shonu\\downloads\\blogapp_final\\blogapp\\blogapp\\views\\shared\\_blogpostcard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{39871766-A6D3-6521-02DF-544926FA5F47}|blogapp.csproj|solutionrelative:views\\shared\\_blogpostcard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{39871766-A6D3-6521-02DF-544926FA5F47}|blogapp.csproj|c:\\users\\shonu\\downloads\\blogapp_final\\blogapp\\blogapp\\views\\home\\landing.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{39871766-A6D3-6521-02DF-544926FA5F47}|blogapp.csproj|solutionrelative:views\\home\\landing.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{39871766-A6D3-6521-02DF-544926FA5F47}|blogapp.csproj|c:\\users\\shonu\\downloads\\blogapp_final\\blogapp\\blogapp\\views\\feed\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{39871766-A6D3-6521-02DF-544926FA5F47}|blogapp.csproj|solutionrelative:views\\feed\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{39871766-A6D3-6521-02DF-544926FA5F47}|blogapp.csproj|c:\\users\\shonu\\downloads\\blogapp_final\\blogapp\\blogapp\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{39871766-A6D3-6521-02DF-544926FA5F47}|blogapp.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Landing.cshtml",
+              "DocumentMoniker": "C:\\Users\\shonu\\Downloads\\blogapp_final\\blogapp\\blogapp\\Views\\Home\\Landing.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Landing.cshtml",
+              "ToolTip": "C:\\Users\\shonu\\Downloads\\blogapp_final\\blogapp\\blogapp\\Views\\Home\\Landing.cshtml",
+              "RelativeToolTip": "Views\\Home\\Landing.cshtml",
+              "ViewState": "AgIAALcAAAAAAAAAAIBJwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-27T06:07:49.099Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\shonu\\Downloads\\blogapp_final\\blogapp\\blogapp\\Views\\Feed\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Feed\\Index.cshtml",
+              "ToolTip": "C:\\Users\\shonu\\Downloads\\blogapp_final\\blogapp\\blogapp\\Views\\Feed\\Index.cshtml",
+              "RelativeToolTip": "Views\\Feed\\Index.cshtml",
+              "ViewState": "AgIAADgAAAAAAAAAAIBJwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-25T17:24:56.316Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\shonu\\Downloads\\blogapp_final\\blogapp\\blogapp\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\shonu\\Downloads\\blogapp_final\\blogapp\\blogapp\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-25T16:52:41.156Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\shonu\\Downloads\\blogapp_final\\blogapp\\blogapp\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Users\\shonu\\Downloads\\blogapp_final\\blogapp\\blogapp\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-07-25T15:14:56.053Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "20250728053606_InitialCreate.cs",
+              "DocumentMoniker": "C:\\Users\\shonu\\Downloads\\blogapp_final\\blogapp\\blogapp\\Migrations\\20250728053606_InitialCreate.cs",
+              "RelativeDocumentMoniker": "Migrations\\20250728053606_InitialCreate.cs",
+              "ToolTip": "C:\\Users\\shonu\\Downloads\\blogapp_final\\blogapp\\blogapp\\Migrations\\20250728053606_InitialCreate.cs",
+              "RelativeToolTip": "Migrations\\20250728053606_InitialCreate.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-28T05:36:06.524Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "_BlogPostCard.cshtml",
+              "DocumentMoniker": "C:\\Users\\shonu\\Downloads\\blogapp_final\\blogapp\\blogapp\\Views\\Shared\\_BlogPostCard.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_BlogPostCard.cshtml",
+              "ToolTip": "C:\\Users\\shonu\\Downloads\\blogapp_final\\blogapp\\blogapp\\Views\\Shared\\_BlogPostCard.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_BlogPostCard.cshtml",
+              "ViewState": "AgIAABIAAAAAAAAAAIBJwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-27T06:16:40.618Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Register.cshtml",
+              "DocumentMoniker": "C:\\Users\\shonu\\Downloads\\blogapp_final\\blogapp\\blogapp\\Views\\Auth\\Register.cshtml",
+              "RelativeDocumentMoniker": "Views\\Auth\\Register.cshtml",
+              "ToolTip": "C:\\Users\\shonu\\Downloads\\blogapp_final\\blogapp\\blogapp\\Views\\Auth\\Register.cshtml",
+              "RelativeToolTip": "Views\\Auth\\Register.cshtml",
+              "ViewState": "AgIAAG4BAAAAAAAAAIBJwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-27T06:17:41.468Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
