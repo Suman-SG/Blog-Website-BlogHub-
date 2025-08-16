@@ -26,7 +26,7 @@ Users can create posts, like, comment, and bookmark blogs. Admins manage content
 ![Post Detail](docs/assets/post.png)
 
 ### other
-![Dark Mode](docs/assets/other.png)
+![Other](docs/assets/other.png)
 
 *(Place your screenshots in `docs/assets/` and reference them like above)*  
 
